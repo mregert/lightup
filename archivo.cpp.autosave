@@ -1,0 +1,18 @@
+#include "archivo.h"
+#include <list>
+
+Archivo::Archivo()
+{
+
+}
+
+Archivo::~Archivo()
+{
+
+}
+
+
+void Archivo::agregarLinea(const char * cadena)
+{
+    archivo.
+}

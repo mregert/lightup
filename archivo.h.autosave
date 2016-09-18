@@ -1,0 +1,24 @@
+#ifndef ARCHIVO_H
+#define ARCHIVO_H
+#include <list>
+
+class Archivo
+{
+
+public:
+
+    Archivo();
+
+    void agregarLinea(const char* cadena);
+    void cargarArchivo(std::string direccionEntrada);
+    bool vacio() const;
+    int longuitud() const;
+    char* obtenerCadena(int posicion) const;
+
+private:
+
+    list<*char> archivo;
+
+};
+
+#endif // ARCHIVO_H
