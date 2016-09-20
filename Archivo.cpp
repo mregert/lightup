@@ -20,7 +20,7 @@ bool Archivo::vacio() const
     return archivo.size()==0;
 }
 
-/*
+
 std::string Archivo::obtenerCadena(int posicion) const
 {
     auto iterator = std::begin(archivo);
@@ -33,7 +33,7 @@ std::string Archivo::obtenerCadena(int posicion) const
         iterator++;
     }
 }
-*/
+
 
 
 int Archivo::longuitud() const
@@ -44,7 +44,7 @@ int Archivo::longuitud() const
 
 void Archivo::agregarLinea(const std::string & linea)
 {
-    archivo.push_front(linea);
+    archivo.push_back(linea);
 }
 
 
@@ -54,9 +54,16 @@ void Archivo::cargarArchivo(std::string direccionEntrada)
     std::string linea;
     archEntrada.open(direccionEntrada.c_str());
 
-    while (!archEntrada.eof())
+    if (archEntrada.is_open())
     {
         archEntrada >> linea;
-        agregarLinea(linea);
+        while (!archEntrada.eof())
+        {
+            agregarLinea(linea);
+            archEntrada >> linea;
+        }
+        archEntrada.close();
     }
+    else
+        std::cout << "No se pudo abrir el archivo" << std::endl;
 }
